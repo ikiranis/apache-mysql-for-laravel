@@ -13,7 +13,7 @@ docker-compose up -d
 
 * Put your laravel application files in **/www** folder
 
-* Install Laravel depedencies, migrations etc
+* Edit Laravel .env file, install depedencies, migrations etc
 
 * Mysql data files will be in **/docker/mysql/data** folder
 
