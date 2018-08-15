@@ -23,7 +23,7 @@ You can create your apache image instead of **apps4net/laravel-apache** with the
 docker build -t apache docker/apache
 ```
 
-Thne use this at **docker-compose.yml** file
+Then use this at **docker-compose.yml** file
 
 ``` 
 image: apache
