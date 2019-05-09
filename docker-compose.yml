@@ -3,17 +3,17 @@ version: '2'
 services:
 
   mysql-server:
-    image: mysql
+    image: mysql:5.7
     environment:
       MYSQL_DATABASE: ${DATABASE_NAME}
       MYSQL_ROOT_PASSWORD: ${DATABASE_ROOT_PASSWORD}
 #      MYSQL_USER: myweb
 #      MYSQL_PASSWORD: secret
-    ports:
-     - ${MYSQL_PORT}
     restart: always
     volumes:
       - ./docker/mysql/data:/var/lib/mysql
+    networks:
+      app_net:
 
   apache-server:
     image: apps4net/laravel-apache:1.0
@@ -29,3 +29,8 @@ services:
       - ./www:/var/www/html
     links:
       - mysql-server
+    networks:
+      app_net: 
+    
+networks:
+  app_net:
