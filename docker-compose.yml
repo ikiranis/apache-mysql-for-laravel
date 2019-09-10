@@ -20,7 +20,9 @@ services:
       app_net:
 
   apache-server:
-    image: apps4net/laravel-apache:1.0
+    build:
+      context: ./docker/apache
+#    image: apps4net/laravel-apache:1.0
 #    image: apache
     ports:
       - ${APP_PORT}
