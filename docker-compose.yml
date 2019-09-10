@@ -4,6 +4,8 @@ services:
 
   mysql-server:
     image: mysql:5.7
+    # for rpi
+    #image: hypriot/rpi-mysql
     environment:
       MYSQL_DATABASE: ${DATABASE_NAME}
       MYSQL_ROOT_PASSWORD: ${DATABASE_ROOT_PASSWORD}
