@@ -4,7 +4,7 @@
 
 * Run 
 ```
-docker-compose up -d
+docker-compose build & docker-compose up -d
 ```
 
 * It will create 2 containers (Apache Server and Mysql Server)
