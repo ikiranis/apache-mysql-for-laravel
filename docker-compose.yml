@@ -3,7 +3,8 @@ version: '2'
 services:
 
   mysql-server:
-    image: mysql:5.7
+    image: mariadb:10.1
+    #image: mysql:5.7
     # for rpi
     #image: nidorpi/rpi-mysql5.7
     environment:
