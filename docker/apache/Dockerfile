@@ -1,15 +1,21 @@
 FROM ubuntu:18.04
 MAINTAINER rocean <rocean74@gmail.com>
 
+RUN apt-get update \
+    && apt-get -y upgrade && DEBIAN_FRONTEND=noninteractive apt-get -y install software-properties-common \
+    && add-apt-repository ppa:ondrej/php
+
 # Install apache, PHP, and supplimentary programs
-RUN apt-get update && apt-get -y upgrade && DEBIAN_FRONTEND=noninteractive apt-get -y install \
-    apache2 php7.3 php7.3-mysql libapache2-mod-php7.3 curl lynx-common \
-    php-xml php7.3-gd php-curl php7.3-mbstring python nano git mysql-client zip \
+RUN apt-get update \
+    && apt-get -y upgrade \
+    && DEBIAN_FRONTEND=noninteractive apt-get -y install \
+    apache2 php7.4 php7.4-mysql mysql-common mysql-client libapache2-mod-php7.4 curl lynx-common \
+    php-xml php7.4-gd php-curl php7.4-mbstring python nano git zip \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
 # Enable apache mods.
-RUN a2enmod php7.3
+RUN a2enmod php7.4
 RUN a2enmod rewrite
 
 # Update the PHP.ini file, enable <? ?> tags and quieten logging.
